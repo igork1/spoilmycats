@@ -1,0 +1,25 @@
+{
+  "name": "fedthecats",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon --watch server.js --watch catsapi server.js",
+    "build": "next build",
+    "start": "node server.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.25",
+    "next": "^9.4.4",
+    "nodemailer": "^6.4.10",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "slugify": "^1.4.5"
+  }
+}
