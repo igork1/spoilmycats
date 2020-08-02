@@ -28,7 +28,6 @@ const CatSchema = new mongoose.Schema({
 
 // Create cat slug from the name
 CatSchema.pre('save', function(next) {
-  console.log(`Slugify ran ${this.name}`);
   this.slug = slugify(this.name, { lower: true });
   next();
 });

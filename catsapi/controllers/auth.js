@@ -152,7 +152,6 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
 
     res.status(200).json({ success: true, data: 'Email sent' });
   } catch (error) {
-    console.log(error);
     user.getResetPasswordToken = undefined;
     user.resetPasswordExpire = undefined;
 
@@ -194,4 +193,14 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
   await user.save();
 
   sendTokenResponse(user, 200, res);
+});
+
+// @desc    Log Out
+// @route   PUT /api/v1/auth/logout
+// @access  Private
+exports.logout = asyncHandler(async (req, res, next) => {
+  res
+    .status(200)
+    .cookie('token', '', { maxAge: 0 })
+    .json({ success: true });
 });

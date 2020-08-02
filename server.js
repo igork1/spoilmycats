@@ -1,6 +1,7 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const next = require('next');
+const errorHandler = require('./catsapi/middleware/error');
 
 const connectDB = require('./config/db');
 
@@ -28,6 +29,7 @@ app
     connectDB();
 
     server.use('/catsapi', catsAPI);
+    server.use(errorHandler);
 
     server.all('*', (req, res) => handle(req, res));
 
