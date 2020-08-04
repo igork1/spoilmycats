@@ -5,20 +5,19 @@ import { PageWrap } from '../styles/PageWrap';
 import { MainScreenStyles } from '../components/MainScreen/MainScreenStyles';
 import AuthBox from '../components/AuthBox/AuthBox';
 
-const Login = () => (
+const Registet = () => (
   <>
     <Head>
-      <title>Login</title>
+      <title>Register | Feed the Cats</title>
+      <link rel="icon" href="/favicon.ico" />
     </Head>
     <PageWrap>
       <Header />
       <MainScreenStyles>
-        <AuthBox initialScreen="login" />
+        <AuthBox initialScreen="register" />
       </MainScreenStyles>
     </PageWrap>
   </>
 );
 
-Login.propTypes = {};
-
-export default Login;
+export default Registet;

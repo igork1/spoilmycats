@@ -1,13 +1,23 @@
 import React from 'react';
 import Head from 'next/head';
+import Header from '../components/Header/Header';
+import { PageWrap } from '../styles/PageWrap';
+import { MainScreenStyles } from '../components/MainScreen/MainScreenStyles';
+import AuthBox from '../components/AuthBox/AuthBox';
 
 const Home = () => (
-  <div>
+  <>
     <Head>
-      <title>Home</title>
+      <title>Feed the Cats</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-  </div>
+    <PageWrap>
+      <Header />
+      <MainScreenStyles>
+        <AuthBox initialScreen="register" />
+      </MainScreenStyles>
+    </PageWrap>
+  </>
 );
 
 export default Home;
