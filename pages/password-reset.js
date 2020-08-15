@@ -5,18 +5,18 @@ import { PageWrap } from '../styles/PageWrap';
 import { MainScreenStyles } from '../components/MainScreen/MainScreenStyles';
 import AuthBox from '../components/AuthBox/AuthBox';
 
-const Login = () => (
+const PasswordReset = () => (
   <>
     <Head>
-      <title>Sign In</title>
+      <title>Password Reset</title>
     </Head>
     <PageWrap>
       <Header />
       <MainScreenStyles>
-        <AuthBox initialScreen="login" />
+        <AuthBox initialScreen="request-password-reset" />
       </MainScreenStyles>
     </PageWrap>
   </>
 );
 
-export default Login;
+export default PasswordReset;

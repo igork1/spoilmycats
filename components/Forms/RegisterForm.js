@@ -50,7 +50,7 @@ const RegisterForm = () => (
         <Input type="name" name="name" label="Name" />
         <Input type="email" name="email" label="Email" />
         <Input type="password" name="password" label="Password" />
-        <button type="submit" className="btn btn-block">
+        <button type="submit" className="btn btn-primary btn-block">
           Create Account
         </button>
       </Form>

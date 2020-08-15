@@ -62,8 +62,18 @@ const Pets = () => {
             <Header user={user} />
             <CatsMainStyles>
               <div className="container">
-                {console.log(user)}
-                <h1 className="title">{user.name}’s Cats</h1>
+                {cats.length > 0 ? (
+                  <h1 className="title">{user.name}’s Cats</h1>
+                ) : (
+                  <>
+                    <h1 className="title">Track Your First Cat 🐱</h1>
+                    <img
+                      className="first-cat"
+                      src="/illustrations/human-and-cat-chilling.svg"
+                      alt="Human and a Cat Chilling"
+                    />
+                  </>
+                )}
                 <CatsList cats={cats} feed={feed} />
               </div>
             </CatsMainStyles>

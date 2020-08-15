@@ -1,5 +1,17 @@
 export const theme = {
-  dark: '#424242',
+  dark: 'rgba(0, 0, 0, 0.7)',
+  light: 'rgba(255, 255, 255, 0.9)',
+
+  primary: '#ffeb3b',
+  primaryDark: '#fdd835',
+
+  secondary: '#2d3747',
+  secondaryDark: '#181e27',
+
+  lightDark: `rgb(0 0 0 / 54%)`,
+  lighterDark: `rgb(0 0 0 / 20%)`,
+
+  lightGray: `rgb(0 0 0 / 8%)`,
 
   media: {
     sm: '@media (min-width: 576px)',

@@ -9,6 +9,8 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Quicksand', sans-serif;
     color: ${props => props.theme.dark};
+    font-weight: 500;
+    background: #f3f7f9;
   }
 
   .container {
@@ -36,6 +38,8 @@ export const GlobalStyle = createGlobalStyle`
     transition: all ease-in-out 0.15s;
     text-decoration: none;
     cursor: pointer;
+    font-weight: 700;
+    font-size: 1.125rem;
 
     &:hover {
       text-decoration: none;
@@ -48,8 +52,49 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .btn-sm {
+    font-size: 0.9375rem;
+    padding: 0.25em 1.5em;
+    font-weight: 500;
+  }
+
   .btn-block {
     display: block;
     width: 100%;
+  }
+
+  .btn-primary {
+    background-color: ${props => props.theme.primary};
+    border-color: transparent;
+    color: ${props => props.theme.dark};
+
+    &:hover {
+      background-color: ${props => props.theme.primaryDark};
+    }
+  }
+  
+  .btn-secondary {
+    background-color: ${props => props.theme.secondary};
+    border-color: transparent;
+    color: ${props => props.theme.light};
+
+    &:hover {
+      background-color: ${props => props.theme.secondaryDark};
+    }
+  }
+
+  .btn-plain {
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: ${props => props.theme.lightDark};
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
   }
 `;

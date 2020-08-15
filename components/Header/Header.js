@@ -10,25 +10,35 @@ const logout = async () => {
   router.push('/login');
 };
 
-const Header = ({ user }) => (
-  <HeaderStyles>
-    <div className="container">
-      <div className="logo">FeedTheCats</div>
-      {user ? (
-        <>
-          <div className="hi">Hello, {user.name}</div>
-          <button type="button" className="btn" onClick={logout}>
-            Log Out
-          </button>
-        </>
-      ) : (
-        <Link href="/login">
-          <a className="btn">Log In</a>
+const Header = ({ user }) => {
+  let logoLink = '/';
+
+  if (user) {
+    logoLink = '/cats';
+  }
+
+  return (
+    <HeaderStyles>
+      <div className="container">
+        <Link href={logoLink}>
+          <a className="logo">FeedTheCats</a>
         </Link>
-      )}
-    </div>
-  </HeaderStyles>
-);
+        {user ? (
+          <>
+            <div className="hi">Hello, {user.name}</div>
+            <button type="button" className="btn" onClick={logout}>
+              Log Out
+            </button>
+          </>
+        ) : (
+          <Link href="/login">
+            <a className="btn btn-primary">Sign In</a>
+          </Link>
+        )}
+      </div>
+    </HeaderStyles>
+  );
+};
 
 Header.propTypes = {
   user: PropTypes.object,

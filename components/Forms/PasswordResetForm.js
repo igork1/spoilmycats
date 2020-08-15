@@ -3,31 +3,31 @@ import { Formik, Form } from 'formik';
 import axios from 'axios';
 import router from 'next/router';
 import * as yup from 'yup';
-import Link from 'next/link';
 import Input from '../Input/Input';
 
 const validationSchema = yup.object().shape({
-  email: yup
-    .string()
-    .email()
-    .required(),
   password: yup
+    .string()
+    .min(6)
+    .required(),
+  password_verify: yup
     .string()
     .min(6)
     .required(),
 });
 
-const LoginForm = () => (
+const PasswordResetForm = ({ token }) => (
   <Formik
     initialValues={{
-      email: '',
       password: '',
+      password_verify: '',
     }}
     validationSchema={validationSchema}
     onSubmit={async values => {
+      console.log(token);
       const { data } = await axios({
-        method: 'POST',
-        url: '/catsapi/v1/auth/login',
+        method: 'PUT',
+        url: `/catsapi/v1/auth/resetpassword/${token}`,
         data: values,
       });
 
@@ -46,19 +46,14 @@ const LoginForm = () => (
       isSubmitting,
     }) => (
       <Form onSubmit={handleSubmit}>
-        <Input type="email" name="email" label="Email" />
-        <Input type="password" name="password" label="Password" />
-        <div className="forgot-password">
-          <Link href="/password-reset">
-            <a>Forgot your password?</a>
-          </Link>
-        </div>
+        <Input type="password" name="password" label="New Password" />
+        <Input type="password" name="password_verify" label="Repeat Password" />
         <button type="submit" className="btn btn-primary btn-block">
-          Sign In
+          Reset Password
         </button>
       </Form>
     )}
   </Formik>
 );
 
-export default LoginForm;
+export default PasswordResetForm;

@@ -4,7 +4,6 @@ import { Field } from 'formik';
 import { InputStyles } from './InputStyles';
 
 const Input = props => {
-  console.log(props);
   const { type, name, label } = props;
   return (
     <InputStyles>

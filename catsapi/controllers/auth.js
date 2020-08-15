@@ -139,14 +139,14 @@ exports.forgotPassword = asyncHandler(async (req, res, next) => {
   // Create reset URL
   const resetUrl = `${req.protocol}://${req.get(
     'host'
-  )}/catsapi/v1/auth/resetpassword/${resetToken}`;
+  )}/password-reset/${resetToken}`;
 
-  const message = `You are receiving this email because you or someone else has requested the reset of a password. Please make a PUT request to \n\n ${resetUrl}`;
+  const message = `You are receiving this email because you or someone else has requested the reset of a password. Click here to reset your password \n\n ${resetUrl}`;
 
   try {
     await sendEmail({
       email: user.email,
-      subject: 'Password reset token',
+      subject: 'Reset your password',
       message,
     });
 
@@ -182,7 +182,7 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
   });
 
   if (!user) {
-    return next(ErrorResponse('Invalid token', 400));
+    return next(new ErrorResponse('Invalid token', 400));
   }
 
   // Set new password (User model will encrypt the password)

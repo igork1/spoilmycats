@@ -11,28 +11,23 @@ const validationSchema = yup.object().shape({
     .string()
     .email()
     .required(),
-  password: yup
-    .string()
-    .min(6)
-    .required(),
 });
 
-const LoginForm = () => (
+const RequestPasswordResetForm = () => (
   <Formik
     initialValues={{
       email: '',
-      password: '',
     }}
     validationSchema={validationSchema}
     onSubmit={async values => {
       const { data } = await axios({
         method: 'POST',
-        url: '/catsapi/v1/auth/login',
+        url: '/catsapi/v1/auth/forgotpassword',
         data: values,
       });
 
       if (data.success) {
-        router.push('/cats');
+        router.push('/login');
       }
     }}
   >
@@ -47,18 +42,12 @@ const LoginForm = () => (
     }) => (
       <Form onSubmit={handleSubmit}>
         <Input type="email" name="email" label="Email" />
-        <Input type="password" name="password" label="Password" />
-        <div className="forgot-password">
-          <Link href="/password-reset">
-            <a>Forgot your password?</a>
-          </Link>
-        </div>
         <button type="submit" className="btn btn-primary btn-block">
-          Sign In
+          Reset Password
         </button>
       </Form>
     )}
   </Formik>
 );
 
-export default LoginForm;
+export default RequestPasswordResetForm;

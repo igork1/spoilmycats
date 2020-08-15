@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const HeaderStyles = styled.header`
-  border-bottom: 1px solid ${props => props.theme.dark};
   padding: 0.5rem 0;
+  border-bottom: 0.25rem solid rgba(0, 0, 0, 0.1);
+  background: ${props => props.theme.light};
 
   .container {
     display: flex;
@@ -12,6 +13,8 @@ export const HeaderStyles = styled.header`
 
   .logo {
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: 700;
+    color: ${props => props.theme.dark};
+    text-decoration: none;
   }
 `;
