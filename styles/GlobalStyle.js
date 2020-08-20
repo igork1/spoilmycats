@@ -11,6 +11,19 @@ export const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.dark};
     font-weight: 500;
     background: #f3f7f9;
+
+    &.modal-open {
+      overflow: hidden;
+  
+      .modal-blur {
+        filter: blur(4px);
+      }
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
   }
 
   .container {
@@ -80,6 +93,17 @@ export const GlobalStyle = createGlobalStyle`
 
     &:hover {
       background-color: ${props => props.theme.secondaryDark};
+    }
+  }
+
+  .btn-danger {
+    background-color: #B71C1C;
+    border-color: #B71C1C;
+    color: white;
+
+    &:hover {
+      border-color: #811919;
+      background-color: #811919;
     }
   }
 

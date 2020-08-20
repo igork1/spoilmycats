@@ -62,7 +62,7 @@ const Pets = () => {
             <Header user={user} />
             <CatsMainStyles>
               <div className="container">
-                {cats.length > 0 ? (
+                {cats?.length > 0 ? (
                   <h1 className="title">{user.name}’s Cats</h1>
                 ) : (
                   <>

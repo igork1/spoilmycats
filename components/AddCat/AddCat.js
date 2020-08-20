@@ -60,7 +60,7 @@ const AddCat = ({ addCat }) => {
             </>
           ) : (
             <button
-              className="btn btn-block"
+              className="btn btn-block btn-secondary"
               type="button"
               onClick={() => {
                 setIsAddingCat(true);

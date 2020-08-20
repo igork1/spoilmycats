@@ -26,7 +26,7 @@ const Header = ({ user }) => {
         {user ? (
           <>
             <div className="hi">Hello, {user.name}</div>
-            <button type="button" className="btn" onClick={logout}>
+            <button type="button" className="btn btn-sm" onClick={logout}>
               Log Out
             </button>
           </>

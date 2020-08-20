@@ -13,6 +13,6 @@ export const CatsMainStyles = styled.main`
     display: block;
     margin: 3rem auto;
     opacity: 0.675;
-    max-width: 30rem;
+    width: 30rem;
   }
 `;
