@@ -21,7 +21,7 @@ const Header = ({ user }) => {
     <HeaderStyles>
       <div className="container">
         <Link href={logoLink}>
-          <a className="logo">FeedTheCats</a>
+          <a className="logo">SpoilMyCats</a>
         </Link>
         {user ? (
           <>

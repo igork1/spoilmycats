@@ -10,7 +10,7 @@ const Meta = () => (
       rel="stylesheet"
     />
 
-    <title>Feed the Cats</title>
+    <title>Cat Feeding Tracker | SpoilMyCats</title>
   </Head>
 );
 

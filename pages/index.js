@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>Feed the Cats</title>
+        <title>Cat Feeding Tracker | SpoilMyCats</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageWrap>

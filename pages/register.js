@@ -8,7 +8,7 @@ import AuthBox from '../components/AuthBox/AuthBox';
 const Registet = () => (
   <>
     <Head>
-      <title>Register | Feed the Cats</title>
+      <title>Register | SpoilMyCats</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
     <PageWrap>
