@@ -9,5 +9,6 @@ export const MainScreenStyles = styled.main`
 
   .hp-title {
     margin: 0 auto 3em;
+    text-align: center;
   }
 `;

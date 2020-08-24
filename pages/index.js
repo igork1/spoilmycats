@@ -24,7 +24,9 @@ const Home = () => {
       <PageWrap>
         <Header />
         <MainScreenStyles>
-          <h1 className="hp-title">Never Forget to Feed the Cats</h1>
+          <div className="container">
+            <h1 className="hp-title">Never Forget to Feed the Cats</h1>
+          </div>
           <AuthBox initialScreen="register" />
         </MainScreenStyles>
       </PageWrap>
