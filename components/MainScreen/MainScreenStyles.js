@@ -8,6 +8,6 @@ export const MainScreenStyles = styled.main`
   align-items: center;
 
   .hp-title {
-    margin: 0 auto 2em;
+    margin: 0 auto 3em;
   }
 `;
