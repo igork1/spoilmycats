@@ -6,4 +6,8 @@ export const MainScreenStyles = styled.main`
   flex-flow: column;
   justify-content: center;
   align-items: center;
+
+  .hp-title {
+    margin: 0 auto 2em;
+  }
 `;

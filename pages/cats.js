@@ -75,10 +75,9 @@ const Pets = () => {
                   </>
                 )}
                 <CatsList cats={cats} feed={feed} />
+                <AddCat addCat={addCat} />
               </div>
             </CatsMainStyles>
-
-            <AddCat addCat={addCat} />
           </PageWrap>
         </>
       )}
