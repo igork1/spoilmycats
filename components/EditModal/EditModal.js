@@ -8,8 +8,6 @@ import { getMyCats } from '../../services';
 import Input from '../Input/Input';
 
 const EditModal = ({ cat, close }) => {
-  console.log(cat.name);
-
   useEffect(() => {
     const body = document.getElementsByTagName('body')[0];
     body.classList.add('modal-open');
@@ -39,7 +37,6 @@ const EditModal = ({ cat, close }) => {
           <Formik
             initialValues={{
               name: '',
-              skills: '',
             }}
             onSubmit={async values => {}}
           >
@@ -54,11 +51,6 @@ const EditModal = ({ cat, close }) => {
             }) => (
               <Form onSubmit={handleSubmit}>
                 <Input type="text" name="name" label="Name" />
-                <Input
-                  type="text"
-                  name="skills"
-                  label="Skills (comma separated)"
-                />
                 <button type="submit" className="btn btn-block">
                   Add Cat
                 </button>

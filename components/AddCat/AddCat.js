@@ -23,7 +23,6 @@ const AddCat = ({ addCat }) => {
                 <Formik
                   initialValues={{
                     name: '',
-                    skills: '',
                   }}
                   validationSchema={validationSchema}
                   onSubmit={async values => {
@@ -45,11 +44,6 @@ const AddCat = ({ addCat }) => {
                   }) => (
                     <Form onSubmit={handleSubmit}>
                       <Input type="text" name="name" label="Name" />
-                      <Input
-                        type="text"
-                        name="skills"
-                        label="Skills (comma separated)"
-                      />
                       <button type="submit" className="btn btn-block">
                         Add Cat
                       </button>

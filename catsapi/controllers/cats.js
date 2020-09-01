@@ -62,8 +62,6 @@ exports.createCat = asyncHandler(async (req, res, next) => {
 exports.updateCat = asyncHandler(async (req, res, next) => {
   let cat = await Cat.findById(req.params.id);
 
-  console.log(cat);
-
   if (!cat) {
     return next(
       new ErrorResponse(`Cat not found with id of ${req.params.id}`, 404)

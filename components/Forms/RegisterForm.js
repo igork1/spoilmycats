@@ -25,15 +25,19 @@ const RegisterForm = () => (
       password: '',
     }}
     validationSchema={validationSchema}
-    onSubmit={async values => {
-      const { data } = await axios({
-        method: 'POST',
-        url: '/catsapi/v1/auth/register',
-        data: values,
-      });
+    onSubmit={async (values, { setErrors }) => {
+      try {
+        const { data } = await axios({
+          method: 'POST',
+          url: '/catsapi/v1/auth/register',
+          data: values,
+        });
 
-      if (data.success) {
-        router.push('/cats');
+        if (data.success) {
+          router.push('/cats');
+        }
+      } catch (error) {
+        setErrors({ email: 'Email already exists' });
       }
     }}
   >
@@ -45,6 +49,7 @@ const RegisterForm = () => (
       handleBlur,
       handleSubmit,
       isSubmitting,
+      setStatus,
     }) => (
       <Form onSubmit={handleSubmit}>
         <Input type="name" name="name" label="Name" />

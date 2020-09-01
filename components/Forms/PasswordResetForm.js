@@ -24,7 +24,6 @@ const PasswordResetForm = ({ token }) => (
     }}
     validationSchema={validationSchema}
     onSubmit={async values => {
-      console.log(token);
       const { data } = await axios({
         method: 'PUT',
         url: `/catsapi/v1/auth/resetpassword/${token}`,

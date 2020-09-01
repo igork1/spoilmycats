@@ -24,15 +24,22 @@ const LoginForm = () => (
       password: '',
     }}
     validationSchema={validationSchema}
-    onSubmit={async values => {
-      const { data } = await axios({
-        method: 'POST',
-        url: '/catsapi/v1/auth/login',
-        data: values,
-      });
+    onSubmit={async (values, { setErrors }) => {
+      try {
+        const { data } = await axios({
+          method: 'POST',
+          url: '/catsapi/v1/auth/login',
+          data: values,
+        });
 
-      if (data.success) {
-        router.push('/cats');
+        if (data.success) {
+          router.push('/cats');
+        }
+      } catch (error) {
+        setErrors({
+          email: 'Invalid Credentials',
+          password: 'Invalid Credentials',
+        });
       }
     }}
   >
