@@ -86,7 +86,7 @@ export const CatsListStyles = styled.ul`
 
   .fed {
     text-align: center;
-    margin: 1em 0 0.5em;
+    margin: 1em 0 2.35em;
 
     p {
       margin: 0;
