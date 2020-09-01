@@ -39,6 +39,16 @@ const Pets = () => {
     setCats(myCats.data);
   };
 
+  const deleteCat = async cat => {
+    await axios({
+      method: 'DELETE',
+      url: `/catsapi/v1/cats/${cat._id}`,
+    });
+
+    const myCats = await getMyCats();
+    setCats(myCats.data);
+  };
+
   useEffect(() => {
     (async () => {
       const usr = await getLoggedInUser();
@@ -74,7 +84,7 @@ const Pets = () => {
                     />
                   </>
                 )}
-                <CatsList cats={cats} feed={feed} />
+                <CatsList cats={cats} deleteCat={deleteCat} feed={feed} />
                 <AddCat addCat={addCat} />
               </div>
             </CatsMainStyles>

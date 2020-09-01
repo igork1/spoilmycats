@@ -4,7 +4,7 @@ import moment from 'moment-timezone';
 import { CatsListStyles } from './CatsListStyles';
 import EditModal from '../EditModal/EditModal';
 
-const CatsList = ({ cats, feed }) => {
+const CatsList = ({ cats, feed, deleteCat }) => {
   const [editCat, setEditCat] = useState(false);
 
   const edit = cat => {
@@ -25,10 +25,14 @@ const CatsList = ({ cats, feed }) => {
             true
           );
 
-          let status = {
-            level: 'happy',
-            label: 'happy',
-          };
+          let status;
+
+          if (timeSinceFeeding > 0) {
+            status = {
+              level: 'happy',
+              label: 'happy',
+            };
+          }
 
           if (timeSinceFeeding > 6) {
             status = {
@@ -55,9 +59,13 @@ const CatsList = ({ cats, feed }) => {
             <li className="cat" key={cat._id}>
               <header className="card-header">
                 <h2 className="cat-name">{cat.name}</h2>
-                <div>
-                  <div className={`status ${status.level}`}>{status.label}</div>
-                </div>
+                {status?.label && (
+                  <div>
+                    <div className={`status ${status.level}`}>
+                      {status.label}
+                    </div>
+                  </div>
+                )}
               </header>
               <div className="fed">
                 {cat.feedingTime ? (
@@ -87,7 +95,7 @@ const CatsList = ({ cats, feed }) => {
                       edit(cat);
                     }}
                   >
-                    edit
+                    delete
                   </button>
                 </div>
               </div>
@@ -95,7 +103,9 @@ const CatsList = ({ cats, feed }) => {
           );
         })}
       </CatsListStyles>
-      {editCat && <EditModal cat={editCat} close={closeModal} />}
+      {editCat && (
+        <EditModal cat={editCat} deleteCat={deleteCat} close={closeModal} />
+      )}
     </>
   );
 };
@@ -103,6 +113,7 @@ const CatsList = ({ cats, feed }) => {
 CatsList.propTypes = {
   cats: PropTypes.array,
   feed: PropTypes.func,
+  deleteCat: PropTypes.func,
 };
 
 export default CatsList;

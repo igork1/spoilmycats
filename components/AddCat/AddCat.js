@@ -26,9 +26,6 @@ const AddCat = ({ addCat }) => {
                   }}
                   validationSchema={validationSchema}
                   onSubmit={async values => {
-                    values.skills = values.skills
-                      .split(',')
-                      .map(skill => skill.trim());
                     addCat(values);
                     setIsAddingCat(false);
                   }}

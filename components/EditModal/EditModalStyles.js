@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const EditModalStyles = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.1);
@@ -49,6 +49,30 @@ export const EditModalStyles = styled.div`
       width: 1rem;
       * {
         fill: ${props => props.theme.lightDark};
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 3rem 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .btn {
+      display: block;
+      width: 100%;
+
+      + .btn {
+        margin-top: 1rem;
+      }
+
+      ${props => props.theme.media.sm} {
+        width: auto;
+
+        + .btn {
+          margin: 0 0 0 1rem;
+        }
       }
     }
   }

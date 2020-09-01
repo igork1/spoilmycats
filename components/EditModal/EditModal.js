@@ -4,10 +4,9 @@ import { ReactSVG } from 'react-svg';
 import axios from 'axios';
 import { Formik, Form } from 'formik';
 import { EditModalStyles } from './EditModalStyles';
-import { getMyCats } from '../../services';
 import Input from '../Input/Input';
 
-const EditModal = ({ cat, close }) => {
+const EditModal = ({ cat, close, deleteCat }) => {
   useEffect(() => {
     const body = document.getElementsByTagName('body')[0];
     body.classList.add('modal-open');
@@ -17,56 +16,34 @@ const EditModal = ({ cat, close }) => {
     };
   }, []);
 
-  const deleteCat = async () => {
-    await axios({
-      method: 'DELETE',
-      url: `/catsapi/v1/cats/${cat._id}`,
-    });
+  const deleteThisCat = () => {
+    deleteCat(cat);
+    close();
   };
 
   return (
     <EditModalStyles>
       <div className="modal">
         <header className="modal-header">
-          <h3 className="modal-title">Edit {cat.name}</h3>
+          <h3 className="modal-title">
+            Are you sure you want to delete {cat.name}?
+          </h3>
           <button className="close" type="button" onClick={close}>
             <ReactSVG src="/icons/close.svg" />
           </button>
         </header>
         <main className="modal-body">
-          <Formik
-            initialValues={{
-              name: '',
-            }}
-            onSubmit={async values => {}}
-          >
-            {({
-              values,
-              errors,
-              touched,
-              handleChange,
-              handleBlur,
-              handleSubmit,
-              isSubmitting,
-            }) => (
-              <Form onSubmit={handleSubmit}>
-                <Input type="text" name="name" label="Name" />
-                <button type="submit" className="btn btn-block">
-                  Add Cat
-                </button>
-              </Form>
-            )}
-          </Formik>
-        </main>
-        <footer className="modal-footer">
           <button
-            className="btn btn-danger btn-sm"
+            className="btn btn-danger"
             type="button"
-            onClick={deleteCat}
+            onClick={deleteThisCat}
           >
             Delete {cat.name}
           </button>
-        </footer>
+          <button className="btn" type="button" onClick={close}>
+            No, go back
+          </button>
+        </main>
       </div>
     </EditModalStyles>
   );
@@ -75,6 +52,7 @@ const EditModal = ({ cat, close }) => {
 EditModal.propTypes = {
   cat: PropTypes.object,
   close: PropTypes.func,
+  deleteCat: PropTypes.func,
 };
 
 export default EditModal;
